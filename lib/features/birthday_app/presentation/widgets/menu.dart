@@ -66,13 +66,11 @@ class _MenuWidgetState extends State<MenuWidget> {
           },
           child: Container(
             decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.black,
-                  width: 1.0,
-                )
-              )
-            ),
+                border: Border(
+                    bottom: BorderSide(
+              color: Colors.black,
+              width: 1.0,
+            ))),
             child: Text(
               _isExpanded ? 'Свернуть ▲' : 'Развернуть ▼',
               style: Theme.of(context).textTheme.labelSmall,
@@ -152,65 +150,92 @@ class ExpandedGridView extends StatelessWidget {
   }
 }
 
-class GridViewItem extends StatelessWidget {
+class GridViewItem extends StatefulWidget {
   final List<MenuItem> items;
   final int index;
   const GridViewItem({super.key, required this.index, required this.items});
 
   @override
+  State<GridViewItem> createState() => _GridViewItemState();
+}
+
+class _GridViewItemState extends State<GridViewItem> with SingleTickerProviderStateMixin {
+
+
+    late AnimationController _controller;
+  bool _isRotated = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _handleOnTap() {
+    if (_isRotated) {
+      _controller.reverse();
+    } else {
+      _controller.forward();
+    }
+    _isRotated = !_isRotated;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return GestureDetector(
-      onTap: () {},
-      child: Container(
-        alignment: Alignment.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: ClipRRect(
-                borderRadius: index % 2 == 0
-                    ? const BorderRadius.only(
-                        topRight: Radius.circular(25),
-                        bottomLeft: Radius.circular(25),
-                      )
-                    : const BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        bottomRight: Radius.circular(25),
-                      ),
-                child: Image.asset(
-                  items[index].dishUrl,
-                  width: SizeCalculator.calculateSize(
-                    context,
-                    sizeOfImage: {
-                      300: 150.w,
-                      600: 160.w,
-                      700: 300.w,
-                      900: 350.w,
-                      1000: 380.w,
-                      1300: 450.w,
-                    },
+      onTap: _handleOnTap,
+      child: RotationTransition(
+        turns: Tween(begin: 0.0, end: 0.5).animate(_controller),
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: widget.index % 2 == 0
+                      ? const BorderRadius.only(
+                          topRight: Radius.circular(25),
+                          bottomLeft: Radius.circular(25),
+                        )
+                      : const BorderRadius.only(
+                          topLeft: Radius.circular(25),
+                          bottomRight: Radius.circular(25),
+                        ),
+                  child: Image.asset(
+                    widget.items[widget.index].dishUrl,
+                    width: SizeCalculator.calculateSize(
+                      context,
+                      sizeOfImage: {
+                        300: 150.w,
+                        600: 160.w,
+                        700: 300.w,
+                        900: 350.w,
+                        1000: 380.w,
+                        1300: 450.w,
+                      },
+                    ),
+                    filterQuality: FilterQuality.high,
+                    fit: BoxFit.cover,
                   ),
-                  // height: SizeCalculator.calculateSize(
-                  //   context,
-                  //   sizeOfImage: {
-                  //     300: 150.h,
-                  //     600: 160.h,
-                  //     700: 300.h,
-                  //     1000: 350.h,
-                  //   },
-                  // ),
-                  filterQuality: FilterQuality.high,
-                  fit: BoxFit.cover,
                 ),
               ),
-            ),
-            Text(
-              items[index].name,
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ],
+              Text(
+                "Нажми на меня",
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ],
+          ),
         ),
       ),
     );

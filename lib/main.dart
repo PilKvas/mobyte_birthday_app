@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
           theme: birthdayTheme(),
         );
       },
-      child: const HomePage(),
+      child:  const HomePage(),
     );
   }
 }
+
