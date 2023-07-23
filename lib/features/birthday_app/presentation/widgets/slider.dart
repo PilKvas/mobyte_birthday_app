@@ -3,9 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_birthday_app/constants/app_images.dart';
 
 class SliderWidget extends StatefulWidget {
-  const SliderWidget({
-    super.key,
-  });
+  const SliderWidget({super.key});
 
   @override
   State<SliderWidget> createState() => _SliderWidgetState();
@@ -95,12 +93,13 @@ class SliderCard extends StatelessWidget {
   final String day;
   final String month;
   final String year;
-  const SliderCard(
-      {super.key,
-      required this.imageUrl,
-      required this.day,
-      required this.month,
-      required this.year});
+  const SliderCard({
+    super.key,
+    required this.imageUrl,
+    required this.day,
+    required this.month,
+    required this.year,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +114,10 @@ class SliderCard extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 15, top: 15),
+          padding: const EdgeInsets.only(
+            left: 15,
+            top: 15,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -124,9 +126,11 @@ class SliderCard extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.labelLarge,
               ),
-              Text(year,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.labelLarge),
+              Text(
+                year,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
             ],
           ),
         ),

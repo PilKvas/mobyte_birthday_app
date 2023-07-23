@@ -51,8 +51,12 @@ class _MenuWidgetState extends State<MenuWidget> {
           height: 10,
         ),
         AnimatedCrossFade(
-          firstChild: CollapsedGridView(items: _items),
-          secondChild: ExpandedGridView(items: _items),
+          firstChild: CollapsedGridView(
+            items: _items,
+          ),
+          secondChild: ExpandedGridView(
+            items: _items,
+          ),
           crossFadeState: _isExpanded
               ? CrossFadeState.showSecond
               : CrossFadeState.showFirst,
@@ -70,8 +74,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                 bottom: BorderSide(
                   color: Colors.black,
                   width: 1.0,
-                )
-              )
+                ),
+              ),
             ),
             child: Text(
               _isExpanded ? 'Свернуть ▲' : 'Развернуть ▼',
@@ -159,7 +163,6 @@ class GridViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return GestureDetector(
       onTap: () {},
       child: Container(
@@ -192,15 +195,6 @@ class GridViewItem extends StatelessWidget {
                       1300: 450.w,
                     },
                   ),
-                  // height: SizeCalculator.calculateSize(
-                  //   context,
-                  //   sizeOfImage: {
-                  //     300: 150.h,
-                  //     600: 160.h,
-                  //     700: 300.h,
-                  //     1000: 350.h,
-                  //   },
-                  // ),
                   filterQuality: FilterQuality.high,
                   fit: BoxFit.cover,
                 ),

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_birthday_app/config/theme/app_theme.dart';
 import 'package:mobyte_birthday_app/features/birthday_app/presentation/pages/home_page.dart';
 
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {

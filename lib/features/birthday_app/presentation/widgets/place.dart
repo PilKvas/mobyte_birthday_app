@@ -4,7 +4,7 @@ import 'package:mobyte_birthday_app/constants/app_images.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PlaceWidget extends StatelessWidget {
-  const PlaceWidget({super.key});
+  const PlaceWidget({super.key,});
 
   void _launchUrl() async {
     if (!await launchUrl(
@@ -45,6 +45,9 @@ class PlaceWidget extends StatelessWidget {
             "Перейти на сайт места",
             style: Theme.of(context).textTheme.labelSmall,
           ),
+        ),
+         SizedBox(
+          height: 20.h,
         ),
       ],
     );
