@@ -159,10 +159,9 @@ class GridViewItem extends StatefulWidget {
   State<GridViewItem> createState() => _GridViewItemState();
 }
 
-class _GridViewItemState extends State<GridViewItem> with SingleTickerProviderStateMixin {
-
-
-    late AnimationController _controller;
+class _GridViewItemState extends State<GridViewItem>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
   bool _isRotated = false;
 
   @override

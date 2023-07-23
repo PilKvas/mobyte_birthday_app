@@ -12,5 +12,5 @@ abstract class AppImages {
   static const String entertaimentItem1 = "assets/images/dice.jpg";
   static const String entertaimentItem2 = "assets/images/pool.png";
 
-  static const String place = "assets/images/место.png";
+  static const String place = "assets/images/place.png";
 }

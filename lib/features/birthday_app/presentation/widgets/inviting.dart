@@ -17,15 +17,12 @@ class _InvitingWidgetState extends State<InvitingWidget>
   late Animation<double> _animation;
   late CurvedAnimation _curve;
 
-  double width = 300;
-
-  double height = 300;
   @override
   void initState() {
     super.initState();
     _controller1 = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
 
     _curve = CurvedAnimation(parent: _controller1, curve: Curves.easeIn);
@@ -64,7 +61,7 @@ class _InvitingWidgetState extends State<InvitingWidget>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              MyWidget(),
+              const InfiniteWidget(),
               SizedBox(
                 width: 40.w,
               ),
@@ -93,14 +90,14 @@ class _InvitingWidgetState extends State<InvitingWidget>
   }
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class InfiniteWidget extends StatefulWidget {
+  const InfiniteWidget({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<InfiniteWidget> createState() => _InfiniteWidgetState();
 }
 
-class _MyWidgetState extends State<MyWidget>
+class _InfiniteWidgetState extends State<InfiniteWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<BorderRadius?> _borderRadius;
@@ -146,5 +143,11 @@ class _MyWidgetState extends State<MyWidget>
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }
