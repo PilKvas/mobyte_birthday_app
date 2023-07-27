@@ -44,7 +44,7 @@ class _SliderWidgetState extends State<SliderWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: (ScreenUtil().screenWidth < 600) ? 240 : 450,
+      height: 240.h,
       child: Stack(
         children: [
           PageView.builder(
@@ -71,8 +71,8 @@ class _SliderWidgetState extends State<SliderWidget> {
                       child: AnimatedContainer(
                         duration: const Duration(microseconds: 300),
                         curve: Curves.ease,
-                        height: 5,
-                        width: _currentPage == index ? 40.w : 5.w,
+                        height: 5.r,
+                        width: _currentPage == index ? 40 : 5,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(5.r),

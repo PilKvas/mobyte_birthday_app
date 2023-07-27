@@ -4,7 +4,9 @@ import 'package:mobyte_birthday_app/constants/app_images.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PlaceWidget extends StatelessWidget {
-  const PlaceWidget({super.key,});
+  const PlaceWidget({
+    super.key,
+  });
 
   void _launchUrl() async {
     if (!await launchUrl(
@@ -26,16 +28,16 @@ class PlaceWidget extends StatelessWidget {
         ),
         Image.asset(
           AppImages.place,
-          width: (ScreenUtil().screenWidth < 600) ? 343.w : 700.w,
-          height: (ScreenUtil().screenWidth < 600) ? 246.w : 500.w,
+          width: 343.w,
+          height: 246.w,
           fit: BoxFit.cover,
         ),
         Text(
           "Центральная ул., 84, хутор Седых",
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         GestureDetector(
           onTap: () {
@@ -46,7 +48,7 @@ class PlaceWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.labelSmall,
           ),
         ),
-         SizedBox(
+        SizedBox(
           height: 20.h,
         ),
       ],

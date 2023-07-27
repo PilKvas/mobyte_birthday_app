@@ -78,8 +78,8 @@ class _EntertaimentWidgetState extends State<EntertaimentWidget> {
             return ListTile(
               leading: Image.asset(
                 _item[index].imageUrl,
-                width: (ScreenUtil().screenWidth < 600) ? 48.w : 70.w,
-                height: (ScreenUtil().screenWidth < 600) ? 48.h : 70.h,
+                width: 48.r,
+                height: 48.r,
                 fit: BoxFit.fill,
               ),
               title: Text(
@@ -101,11 +101,11 @@ class _EntertaimentWidgetState extends State<EntertaimentWidget> {
             });
           },
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
                   color: Colors.black,
-                  width: 1.0,
+                  width: 1.0.w,
                 ),
               ),
             ),

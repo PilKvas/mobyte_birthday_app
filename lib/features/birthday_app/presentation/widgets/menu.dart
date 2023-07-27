@@ -47,8 +47,8 @@ class _MenuWidgetState extends State<MenuWidget> {
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         AnimatedCrossFade(
           firstChild: CollapsedGridView(
@@ -69,11 +69,11 @@ class _MenuWidgetState extends State<MenuWidget> {
             });
           },
           child: Container(
-            decoration: const BoxDecoration(
+            decoration:  BoxDecoration(
               border: Border(
                 bottom: BorderSide(
                   color: Colors.black,
-                  width: 1.0,
+                  width: 1.0.w,
                 ),
               ),
             ),
@@ -174,27 +174,29 @@ class GridViewItem extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 borderRadius: index % 2 == 0
-                    ? const BorderRadius.only(
-                        topRight: Radius.circular(25),
-                        bottomLeft: Radius.circular(25),
+                    ?  BorderRadius.only(
+                        topRight: const Radius.circular(25).r,
+                        bottomLeft: const Radius.circular(25).r,
                       )
-                    : const BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        bottomRight: Radius.circular(25),
+                    :  BorderRadius.only(
+                        topLeft: const Radius.circular(25).r,
+                        bottomRight: const Radius.circular(25).r,
                       ),
                 child: Image.asset(
                   items[index].dishUrl,
-                  width: SizeCalculator.calculateSize(
-                    context,
-                    sizeOfImage: {
-                      300: 150.w,
-                      600: 160.w,
-                      700: 300.w,
-                      900: 350.w,
-                      1000: 380.w,
-                      1300: 450.w,
-                    },
-                  ),
+                  width: 140.w,
+                  height: 140.h,
+                  // width: SizeCalculator.calculateSize(
+                  //   context,
+                  //   sizeOfImage: {
+                  //     300: 150.w,
+                  //     600: 160.w,
+                  //     700: 300.w,
+                  //     900: 350.w,
+                  //     1000: 380.w,
+                  //     1300: 450.w,
+                  //   },
+                  // ),
                   filterQuality: FilterQuality.high,
                   fit: BoxFit.cover,
                 ),

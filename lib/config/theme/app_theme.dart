@@ -8,31 +8,31 @@ ThemeData birthdayTheme() {
     textTheme: TextTheme(
       labelLarge: TextStyle(
         color: AppColors.sliderText,
-        fontSize: (ScreenUtil().screenWidth < 600) ? 24.sp : 55.sp,
+        fontSize: 24.sp,
         fontFamily: 'Jost',
         fontWeight: FontWeight.w700,
       ),
       headlineMedium: TextStyle(
         color: AppColors.headlineText,
-        fontSize: (ScreenUtil().screenWidth < 600) ? 14.sp : 25.sp,
+        fontSize: 14.sp,
         fontFamily: 'Jost',
         fontWeight: FontWeight.w400,
       ),
       titleLarge: TextStyle(
         color: Colors.black,
-        fontSize: (ScreenUtil().screenWidth < 600) ? 24.sp : 60.sp,
+        fontSize: 24.sp,
         fontFamily: 'YesevaOne',
         fontWeight: FontWeight.w400,
       ),
       titleSmall: TextStyle(
         color: AppColors.titleSmall,
-        fontSize: (ScreenUtil().screenWidth < 600) ? 14.sp : 35.sp,
+        fontSize: 14.sp,
         fontFamily: 'Jost',
         fontWeight: FontWeight.w400,
       ),
       labelSmall: TextStyle(
         color: AppColors.collapse,
-        fontSize: (ScreenUtil().screenWidth < 600) ? 14.sp : 25.sp,
+        fontSize: 14.sp,
         fontFamily: 'Jost',
         fontWeight: FontWeight.w400,
       ),
@@ -41,7 +41,7 @@ ThemeData birthdayTheme() {
       style: ElevatedButton.styleFrom(
         textStyle: TextStyle(
           color: Colors.white,
-          fontSize: (ScreenUtil().screenWidth < 600) ? 14.sp : 30.sp,
+          fontSize: 14.sp,
           fontFamily: 'Jost',
           fontWeight: FontWeight.w600,
         ),

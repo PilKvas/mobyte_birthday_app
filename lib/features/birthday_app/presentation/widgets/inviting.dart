@@ -46,8 +46,8 @@ class InvitingWidget extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: 15.h,
               ),
             ],
           )
