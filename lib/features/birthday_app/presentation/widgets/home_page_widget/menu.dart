@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_birthday_app/constants/app_images.dart';
 import 'package:mobyte_birthday_app/features/birthday_app/models/menu_item.dart';
 
+import '../../pages/menu_item_page.dart';
+
 class MenuWidget extends StatefulWidget {
   const MenuWidget({super.key});
 
@@ -16,26 +18,32 @@ class _MenuWidgetState extends State<MenuWidget> {
     MenuItem(
       name: "Канапе",
       dishUrl: AppImages.menuItem1,
+      menuIngredients: ["Хлеб", "Ветчина", "Салат", "Яйцо"],
     ),
     MenuItem(
       name: "Сырная тарелка",
       dishUrl: AppImages.menuItem2,
+      menuIngredients: ["Хлеб", "Ветчина", "Салат", "Яйцо"],
     ),
     MenuItem(
       name: "Шашлык на мангале",
       dishUrl: AppImages.menuItem3,
+      menuIngredients: ["Хлеб", "Ветчина", "Салат", "Яйцо"],
     ),
     MenuItem(
       name: "Морепродукты",
       dishUrl: AppImages.menuItem4,
+      menuIngredients: ["Хлеб", "Ветчина", "Салат", "Яйцо"],
     ),
     MenuItem(
       name: "Свежие фрукты",
       dishUrl: AppImages.menuItem5,
+      menuIngredients: ["Хлеб", "Ветчина", "Салат", "Яйцо"],
     ),
     MenuItem(
       name: "Авторские лимонады",
       dishUrl: AppImages.menuItem6,
+      menuIngredients: ["Хлеб", "Ветчина", "Салат", "Яйцо"],
     ),
   ];
   @override
@@ -69,7 +77,7 @@ class _MenuWidgetState extends State<MenuWidget> {
             });
           },
           child: Container(
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
                   color: Colors.black,
@@ -164,7 +172,17 @@ class GridViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (contex) => MenuItemPage(
+              items: items,
+              index: index,
+              item: items[index],
+            ),
+          ),
+        );
+      },
       child: Container(
         alignment: Alignment.center,
         child: Column(
@@ -174,11 +192,11 @@ class GridViewItem extends StatelessWidget {
             Expanded(
               child: ClipRRect(
                 borderRadius: index % 2 == 0
-                    ?  BorderRadius.only(
+                    ? BorderRadius.only(
                         topRight: const Radius.circular(25).r,
                         bottomLeft: const Radius.circular(25).r,
                       )
-                    :  BorderRadius.only(
+                    : BorderRadius.only(
                         topLeft: const Radius.circular(25).r,
                         bottomRight: const Radius.circular(25).r,
                       ),
@@ -186,17 +204,6 @@ class GridViewItem extends StatelessWidget {
                   items[index].dishUrl,
                   width: 140.w,
                   height: 140.h,
-                  // width: SizeCalculator.calculateSize(
-                  //   context,
-                  //   sizeOfImage: {
-                  //     300: 150.w,
-                  //     600: 160.w,
-                  //     700: 300.w,
-                  //     900: 350.w,
-                  //     1000: 380.w,
-                  //     1300: 450.w,
-                  //   },
-                  // ),
                   filterQuality: FilterQuality.high,
                   fit: BoxFit.cover,
                 ),

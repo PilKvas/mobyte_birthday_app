@@ -37,6 +37,21 @@ ThemeData birthdayTheme() {
         fontWeight: FontWeight.w400,
       ),
     ),
+  inputDecorationTheme: const InputDecorationTheme(
+    focusedBorder:  OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Color.fromRGBO(71, 128, 42, 1),
+      ),
+    ),
+    labelStyle:  TextStyle(
+      color: Color(0xFF4E4343),
+    ),
+    suffixIconColor:  Color.fromRGBO(71, 128, 42, 1),
+    fillColor:  Color.fromRGBO(242, 248, 239, 1),
+    border:  OutlineInputBorder(borderSide: BorderSide.none),
+    filled: true,
+    focusColor: Colors.black,
+  ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: TextStyle(
@@ -56,6 +71,7 @@ ThemeData birthdayTheme() {
       ),
     ),
   );
+  
 }
 
 class ListTileCustomTheme {
@@ -73,3 +89,4 @@ class ListTileCustomTheme {
         );
   }
 }
+

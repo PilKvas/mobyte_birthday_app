@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../pages/guest_page.dart';
+
 class InvitingWidget extends StatelessWidget {
   const InvitingWidget({
     super.key,
@@ -27,7 +29,14 @@ class InvitingWidget extends StatelessWidget {
             children: [
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const GuestPage(),
+                      ),
+                    );
+                  },
                   style: Theme.of(context).elevatedButtonTheme.style,
                   child: const Text(
                     'Список людей',
@@ -43,7 +52,14 @@ class InvitingWidget extends StatelessWidget {
                   child: const Text(
                     'Вишлист',
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const GuestPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
               SizedBox(

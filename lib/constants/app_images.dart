@@ -13,4 +13,8 @@ abstract class AppImages {
   static const String entertaimentItem2 = "assets/images/pool.png";
 
   static const String place = "assets/images/place.png";
+
+  static const String avatar = "assets/images/avatar.png";
+
+  static const String fork = "assets/images/fork.png";
 }

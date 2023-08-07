@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/entertaiment.dart';
-import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/inviting.dart';
-import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/menu.dart';
-import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/place.dart';
-import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/slider.dart';
+import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/home_page_widget/entertaiment.dart';
+import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/home_page_widget/inviting.dart';
+import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/home_page_widget/menu.dart';
+import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/home_page_widget/place.dart';
+import 'package:mobyte_birthday_app/features/birthday_app/presentation/widgets/home_page_widget/slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
